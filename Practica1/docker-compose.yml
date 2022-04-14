@@ -4,19 +4,13 @@ services:
     image: mysql:5.7 
     restart: always 
     environment: 
-      MYSQL_DATABASE: 'db' 
-      # Así que no tiene que usar root, pero puede hacerlo si quiere
-       MYSQL_USER: 'user' 
-      # Puede usar la contraseña que quiera
-       MYSQL_PASSWORD : '1234' 
-      # Contraseña para acceso raíz
-       MYSQL_ROOT_PASSWORD: '1234' 
-    ports: 
-      # <Puerto expuesto> : <Puerto MySQL ejecutándose dentro del contenedor> 
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD : '1234'
+      MYSQL_ROOT_PASSWORD: '1234' 
+    ports:
       - '3307:3306' 
-    expose: 
-      # Abre el puerto 3306 en el contenedor 
+    expose:
       - '3306'
-      # Donde nuestros datos serán 
     volumes: 
       - my-db:/var/lib/mysql
