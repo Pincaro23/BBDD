@@ -1,4 +1,4 @@
-versión: '3.3'
+version: '3.3'
 services: 
   db: 
     image: mysql:5.7 
@@ -8,18 +8,15 @@ services:
       # Así que no tiene que usar root, pero puede hacerlo si quiere
        MYSQL_USER: 'user' 
       # Puede usar la contraseña que quiera
-       MYSQL_PASSWORD : 'contraseña' 
+       MYSQL_PASSWORD : '1234' 
       # Contraseña para acceso raíz
-       MYSQL_ROOT_PASSWORD: 'contraseña' 
-    puertos: 
+       MYSQL_ROOT_PASSWORD: '1234' 
+    ports: 
       # <Puerto expuesto> : <Puerto MySQL ejecutándose dentro del contenedor> 
-      - '3306:3306' 
-    exposición:exponer: 
+      - '3307:3306' 
+    expose: 
       # Abre el puerto 3306 en el contenedor 
       - '3306'
       # Donde nuestros datos serán 
-    volúmenes persistentes: 
-      - my-db:/var/lib/mysql 
-# Nombra nuestros 
-volúmenes de volumen: 
-  my-db:
+    volumes: 
+      - my-db:/var/lib/mysql
